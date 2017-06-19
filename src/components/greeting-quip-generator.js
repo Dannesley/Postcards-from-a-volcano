@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
 const Text = styled.p`
@@ -6,7 +6,7 @@ const Text = styled.p`
 	font-size: 2em;
 `;
 
-export default class GreetingQuipGenerator extends React.Component {
+export default class GreetingQuipGenerator extends PureComponent {
 
 	generateQuip() {
 		return 'Enjoy yourself, lavaley';

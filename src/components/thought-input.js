@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { setThought } from '../state/actions';
@@ -57,7 +57,7 @@ const InputBorder = styled.div`
 	transition: transform 250ms ease-in-out;
 `;
 
-export class ThoughtInput extends React.Component {
+export class ThoughtInput extends PureComponent {
 
 	onKeyPress = (event) => {
 		if (event.key === 'Enter') {

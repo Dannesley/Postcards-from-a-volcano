@@ -41,7 +41,6 @@ const ui = (state = initialUiState, action) => {
 	switch(action.type) {
 		case SET_PART_OF_THE_DAY: {
 			const partOfTheDay = action.payload;
-			console.log(partOfTheDay);
 			return set(state, 'partOfTheDay', partOfTheDay);
 		}
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import sakurajimaNight from '../assets/images/sakurajima_night.jpg';
@@ -30,7 +30,7 @@ const FullSizeContainer = styled.div`
 	background-color: rgba(0,0,0,0.1);
 `;
 
-export class App extends React.Component {
+export class App extends PureComponent {
 	constructor() {
 		super();
 		chrome.storage.sync.get(['lastUpdated', 'factOfTheDay', 'greetings'], (storage) => {

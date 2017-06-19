@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import sakurajimaNight from '../assets/images/sakurajima_night.jpg';
 import GreetingGenerator from './greeting-generator';
@@ -18,7 +18,7 @@ const Centred = styled.div`
 const GreetingWrapper = styled.div`
 `;
 
-export default class Centre extends React.Component {
+export default class Centre extends PureComponent {
 
 	render() {
     	return (

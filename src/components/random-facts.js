@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { setFactExpand } from '../state/actions';
@@ -40,7 +40,7 @@ const Chevron = styled.div`
 	cursor: pointer;
 `;
 
-export class RandomFacts extends React.Component {
+export class RandomFacts extends PureComponent {
 	setExpandState = () => {
 		this.props.setFactExpand(!this.props.isFactExpanded)
 	}

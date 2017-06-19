@@ -16,7 +16,7 @@ export default (storage) => {
 
 		// sync new state back to server
 		const lastUpdated = today.toString();
-		chrome.storage.sync.set({ ...newState, lastUpdated }, () => { console.log('syncd new state'); });
+		chrome.storage.sync.set({ ...newState, lastUpdated }, () => { console.log('New day, new data.'); });
 
 		return newState;
 	}

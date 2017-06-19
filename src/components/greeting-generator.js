@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
@@ -7,7 +7,7 @@ const Text = styled.p`
 	font-size: 6em;
 `;
 
-export class GreetingGenerator extends React.Component {
+export class GreetingGenerator extends PureComponent {
 	generateGreetingText() {
 		const { partOfTheDay, greetings } = this.props;
 		return greetings[partOfTheDay];
