@@ -1,186 +1,154 @@
-# React Static Boilerplate &nbsp; <a href="https://travis-ci.org/kriasoft/react-static-boilerplate"><img src="http://img.shields.io/travis/kriasoft/react-static-boilerplate/master.svg?style=flat-square" height="20" /></a> <a href="https://github.com/kriasoft/react-static-boilerplate/stargazers"><img src="https://img.shields.io/github/stars/kriasoft/react-static-boilerplate.svg?style=social&label=Star&maxAge=3600" height="20"></a> <a href="https://twitter.com/ReactStatic"><img src="https://img.shields.io/twitter/follow/ReactStatic.svg?style=social&label=Follow&maxAge=3600" height="20"></a>
-
-[**React Static Boilerplate**](https://github.com/kriasoft/react-static-boilerplate) (RSB) is a
-boilerplate and tooling for creating modern stand-alone web applications (aka
-[SPA](https://en.wikipedia.org/wiki/Single-page_application)s) for a serverless architecture. RSB
-significantly reduces cost by eliminating the need for servers such as EC2 instances because the
-entire site can be hosted directly from CDN ([Firebase](https://www.firebase.com/), [GitHub
-Pages](https://pages.github.com/), [Amazon S3](http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html),
-or other similar cloud storage). Sites built with RSB can be fully functional with REST API or
-GraphQL calls to micro-services such as [Amazon Lambda](https://aws.amazon.com/lambda/),
-[Azure Functions](https://azure.microsoft.com/services/functions/), or dynamic Docker endpoints
-hosted on [DigitalOcean](https://www.digitalocean.com/?refcode=eef302dbae9f&utm_source=github&utm_medium=oss_sponsorships&utm_campaign=opencollective).
-RSB demonstrates how to use component-based UI development approach with best of breed
-technologies including [React](http://facebook.github.io/react/), [Redux](http://redux.js.org/),
-[Babel](http://babeljs.io/), [Webpack](https://webpack.github.io/), [Browsersync](https://browsersync.io/),
-[React Hot Loader](http://gaearon.github.io/react-hot-loader/) and more. **This work is being
-[sponsored](https://opencollective.com/react-static-boilerplate#support) by**:
-
-<p align="center">
-  <a href="https://rollbar.com/?utm_source=reactstartkit(github)&utm_medium=link&utm_campaign=reactstartkit(github)" target="_blank">
-    <img src="https://koistya.github.io/files/rollbar-384x64.png" width="192" height="32">
-  </a>
-  <a href="https://localizejs.com/?cid=802&utm_source=rsk" target="_blank">
-    <img src="https://koistya.github.io/files/localize-353x64.png" width="176.5" height="32">
-  </a>
-  <a href="https://www.digitalocean.com/?refcode=eef302dbae9f&utm_source=github&utm_medium=oss_sponsorships&utm_campaign=opencollective" target="_blank">
-    <img src="https://koistya.github.io/files/digital-ocean-393x64.png" width="196.5" height="32">
-  </a>
-</p>
+# React Redux minimal starter kit (boilerplate)
 
 
-### Features
-
-✓ Modern JavaScript syntax ([ES2015](http://babeljs.io/docs/learn-es2015/)+) via [Babel](http://babeljs.io/), modern CSS syntax via [PostCSS](https://github.com/postcss/postcss)<br>
-✓ Component-based UI architecture via [React](http://facebook.github.io/react/), [Webpack](https://webpack.github.io/) and [CSS Modules](https://github.com/css-modules/css-modules)<br>
-✓ Application state management /w time-travel debugging via [Redux](http://redux.js.org/) (see [`main.js`](src/main.js), [`store.js`](src/store.js))<br>
-✓ Routing and navigation via [`path-to-regexp`](https://github.com/pillarjs/path-to-regexp) and [`history`](https://github.com/mjackson/history) ([`main.js`](src/main.js), [`router.js`](src/router.js), [`tools/routes-loader.js`](tools/routes-loader.js))<br>
-✓ [Code-splitting](https://github.com/webpack/docs/wiki/code-splitting) and async chunk loading via [Webpack](https://webpack.github.io/) v2<br>
-✓ Hot Module Replacement ([HMR](https://webpack.github.io/docs/hot-module-replacement.html)) /w [React Hot Loader](http://gaearon.github.io/react-hot-loader/), cross-device testing with [Browsersync](https://browsersync.io/) (see [`run.js`](tools/run.js))<br>
-✓ **24/7** community support on [Gitter](https://gitter.im/kriasoft/react-static-boilerplate) + *perimum support* on [Skype](https://hatscripts.com/addskype?koistya) ([book a session](https://calendly.com/koistya))<br>
-
-**View** [docs](./docs), [online demo](https://rsb.kriasoft.com) &nbsp;|&nbsp; **Follow us** on
-[Gitter](https://gitter.im/kriasoft/react-static-boilerplate), [Twitter](https://twitter.com/ReactStatic)
-or [ProductHunt](https://www.producthunt.com/tech/react-static-boilerplate) &nbsp;|&nbsp;
-**Learn** [React.js and ES6](#learn-reactjs-and-es6)
+<br><a href="http://redux-minimal.js.org/"><img src="http://redux-minimal.js.org/logo/redux-minimal-logo-blue.svg"></a><br><br>
 
 
-### Directory Layout
+[![Join the chat at https://gitter.im/catalin-luntraru/redux-minimal](https://badges.gitter.im/catalin-luntraru/redux-minimal.svg)](https://gitter.im/catalin-luntraru/redux-minimal?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/catalin-luntraru/redux-minimal.svg?branch=master)](https://travis-ci.org/catalin-luntraru/redux-minimal?branch=master)
+[![dependencies](https://david-dm.org/catalin-luntraru/redux-minimal.svg)](https://david-dm.org/catalin-luntraru/redux-minimal)
+[![devDependency Status](https://david-dm.org/catalin-luntraru/redux-minimal/dev-status.svg)](https://david-dm.org/catalin-luntraru/redux-minimal?type=dev)
 
-```shell
-├── components/                 # Shared or generic UI components
-│   ├── Button/                 # Button component
-│   ├── Layout/                 # Website layout component
-│   ├── Link/                   # Link component to be used instead of <a>
-│   └── ...                     # etc.
-├── docs/                       # Documentation to the project
-├── node_modules/               # 3rd-party libraries and utilities
-├── src/                        # Application source code
-│   ├── about/                  # About page
-│   ├── error/                  # Error page
-│   ├── home/                   # Home page
-│   ├── history.js              # Handles client-side navigation
-│   ├── main.js                 # <== Application entry point <===
-│   ├── router.js               # Handles routing and data fetching
-│   ├── routes.json             # This list of application routes
-│   └── store.js                # Application state manager (Redux)
-├── public/                     # Static files such as favicon.ico etc.
-│   ├── dist/                   # The folder for compiled output
-│   ├── favicon.ico             # Application icon to be displayed in bookmarks
-│   ├── robots.txt              # Instructions for search engine crawlers
-│   └── ...                     # etc.
-├── test/                       # Unit and integration tests
-├── tools/                      # Utility and helper classes
-└── package.json                # The list of project dependencies and NPM scripts
-```
+Redux-Minimal is a minimalist react-redux starter kit (boilerplate) which let's you build rich real world apps. 
+It's not as light as some starter kits which only let you write a simple hello world app and then you have to struggle with installing all the other stuff yourself. 
+And it's also not as packed as other starter kits which confuse you massively with its folder/file structure and arcane scripts.
+
+Redux-Minimal contains the bare minimum to develop a real world complex app and it also comes with a small users app that will show you how to code certain features.
+A demo of the app can be seen here: [http://redux-minimal-app.catalin-luntraru.com](http://redux-minimal-app.catalin-luntraru.com)
 
 
-### Getting Started
+# Getting started
 
-**Step 1**. Make sure that you have [Node.js](https://nodejs.org/) v6 or newer and
-[Yarn](https://yarnpkg.com/) installed on your development machine.
+1. Before you start working with redux-minimal, you first need to setup your environment. Make sure you have the following installed:
+    * [Git](https://git-scm.com/downloads)
+    * [NodeJs and Npm](https://nodejs.org/en/download/current/)
+    * an IDE to write js code in, for example [Webstorm](https://www.jetbrains.com/webstorm/download/)
 
-**Step 2**. Clone this repository (alternatively, use [Yeoman
-generator](https://github.com/kriasoft/react-static-boilerplate/tree/generator-react-static) to
-bootstrap your project):
+2. Once your environment is prepared, open a command prompt (terminal) and type in the following:
 
-```shell
-$ git clone -o react-static-boilerplate -b master --single-branch \
-      https://github.com/kriasoft/react-static-boilerplate.git MyApp
-$ cd MyApp
-$ yarn install                  # Install project dependencies listed in package.json
-```
+    ```sh
+    cd C:\js\node\apps
+    git clone https://github.com/catalin-luntraru/redux-minimal.git hello-world
+    cd hello-world
+    npm install
+    npm start
+    ```
 
+3. Then open your [http://localhost:8080/](http://localhost:8080/) to see the included small users app. 
+Congratulations! You can now write react redux code.
 
-**Step 3**. Compile and launch your app by running:
-
-```shell
-$ yarn start                    # Compiles the app and opens it in a browser with "live reload"
-```
-
-You can also test your app in release (production) mode by running `yarn start -- --release` or
-with HMR and React Hot Loader disabled by running `yarn start -- --no-hmr`. The app should become
-available at [http://localhost:3000/](http://localhost:3000/).
+4. For more productivity you can install Chrome's [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) and [Redux Dev Tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
 
 
-### How to Test
+# Video tutorial
 
-The unit tests are powered by [chai](http://chaijs.com/) and [mocha](http://mochajs.org/).
+I made a video tutorial series, to help people out getting started with react and redux. It covers the basics, like what is react, redux, etc, and also setting up the environment with redux-minimal and guiding you step by step with creating the demo users app. You will also understand why code was written this way, where refactoring was needed, etc.
 
-```shell
-$ yarn lint                     # Check JavaScript and CSS code for potential issues
-$ yarn test                     # Run unit tests. Or, `yarn run test:watch`
-```
+[Let's learn React and Redux with Javascript's new ES6 syntax, from Beginner to Intermediate to Advanced](https://www.youtube.com/watch?v=d0oUGmSE6IY&list=PLJBrYU54JD2pTblB20OmV7GL6H5J-p2g8)
 
+# Why use this?
 
-### How to Deploy
+Redux-Minimal contains the minimum npm packages you need to have installed in order to build a react redux real-world app containing:
+* a proper file/folder structure
+* pages (routes)
+* forms with validation
+* real-world API asynchronous requests
+* unit tests
+* bootstrap react components
+* sass
+* hot loader for ease of development
+* redux tools
+* js and css bundle files built for development or production
 
-Update `publish` script in the [`tools/publish.js`](tools/publish.js) file with your full Firebase
-project name as found in your [Firebase console](https://console.firebase.google.com/). Note that
-this may have an additional identifier suffix than the shorter name you've provided. Then run: 
-
-```shell
-$ yarn run publish                  # Builds and deployes the app to Firebase
-```
-
-The first time you publish, you will be prompted to authenticate with Google and generate an
-authentication token in order for the publish script to continue.
-
-![publish](https://koistya.github.io/files/react-static-boilerplate-publish.gif)
-
-If you need to build the project without publishing it, simply run:
-
-```shell
-$ yarn build                    # Compiles the app into the /public/dist folder
-```
+The code and implementation are minimal, which lets you focus on the real app, not the webpack, babel, gulp etc boilerplate files, which honestly you shouldn't even bother with.
 
 
-### How to Update
+# Installed packages
 
-You can always fetch and merge the recent changes from this repo back into your own project:
+Here are the npm packages that redux-minimal installs:
 
-```shell
-$ git checkout master
-$ git fetch react-static-boilerplate
-$ git merge react-static-boilerplate/master
-$ yarn install
-```
-
-
-### Learn React.js and ES6
-
-:mortar_board: &nbsp; **[React.js Training Program](http://www.reactjsprogram.com/?asdf=36750_q0pu0tfa)** by Tyler McGinnis<br>
-:mortar_board: &nbsp; **[React for Beginners](https://reactforbeginners.com/friend/konstantin)** and **[ES6 Training Course](https://es6.io/friend/konstantin)** by Wes Bos<br>
-:green_book: &nbsp; **[React: Up & Running: Building Web Applications](http://amzn.to/2bBgqhl)** by Stoyan Stefanov (Aug, 2016)<br>
-:green_book: &nbsp; **[Getting Started with React](http://amzn.to/2bmwP5V)** by Doel Sengupta and Manu Singhal (Apr, 2016)<br>
-:green_book: &nbsp; **[You Don't Know JS: ES6 & Beyond](http://amzn.to/2bBfVnp)** by Kyle Simpson (Dec, 2015)<br>
-
-
-### Related Projects
-
-* [React Starter Kit](https://github.com/kriasoft/react-starter-kit) — Isomorphic web app boilerplate (Node.js, React, GraphQL, Webpack, CSS Modules)
-* [Node.js API Starter Kit](https://github.com/kriasoft/nodejs-api-starter) — Boilerplate and tooling for building data APIs with Node.js, GraphQL and Relay
-* [ASP.NET Core Starter Kit](https://github.com/kriasoft/aspnet-starter-kit) — Cross-platform single-page application boilerplate (ASP.NET Core, React, Redux)
-* [Babel Starter Kit](https://github.com/kriasoft/babel-starter-kit) — JavaScript library boilerplate (ES2015, Babel, Rollup, Mocha, Chai, Sinon, Rewire)
-* [React App SDK](https://github.com/kriasoft/react-app) — Create React apps with just a single dev dependency and zero configuration
-* [Universal Router](https://github.com/kriasoft/universal-router) — Isomorphic router for web and single-page applications (SPA)
-* [History](https://github.com/mjackson/history) — HTML5 History API wrapper library that handle navigation in single-page apps
-
-
-### How to Contribute
-
-Anyone and everyone is welcome to [contribute](CONTRIBUTING.md) to this project. The best way to
-start is by checking our [open issues](https://github.com/kriasoft/react-static-boilerplate/issues),
-[submit a new issues](https://github.com/kriasoft/react-static-boilerplate/issues/new?labels=bug) or
-[feature request](https://github.com/kriasoft/react-static-boilerplate/issues/new?labels=enhancement),
-participate in discussions, upvote or downvote the issues you like or dislike, send [pull
-requests](CONTRIBUTING.md#pull-requests).
+|Feature|Packages|Benefits|
+|-------|--------|--------|
+|React|[`react`](https://github.com/facebook/react)|A declarative, efficient, and flexible JavaScript library for building user interfaces|
+||[`react-dom`](https://www.npmjs.com/package/react-dom)|Serves as the entry point of the DOM-related rendering paths|
+||[`react-hot-loader`](https://github.com/gaearon/react-hot-loader)|Tweak React components in real time when developing|
+|Redux|[`redux`](https://github.com/reactjs/redux)|A predictable state container for JavaScript apps|
+||[`react-redux`](https://github.com/reactjs/react-redux)|React bindings for Redux|
+||[`redux-freeze`](https://github.com/buunguyen/redux-freeze)|Redux middleware that prevents state from being mutated anywhere in the app|
+|Router|[`react-router`](https://github.com/ReactTraining/react-router)|Declarative routing for React. Your app has pages now|
+||[`react-router-redux`](https://github.com/reactjs/react-router-redux)|Simple bindings to keep react-router and redux in sync|
+|Bootstrap|[`react-bootstrap`](https://github.com/react-bootstrap/react-bootstrap)|Bootstrap 3 components built with React|
+||[`react-router-bootstrap`](https://github.com/react-bootstrap/react-router-bootstrap)|Integration between React Router and React-Bootstrap|
+|Forms|[`redux-form`](https://github.com/erikras/redux-form)|A Higher Order Component using react-redux to keep form state in a Redux store|
+|Asynchronous|[`redux-saga`](https://github.com/yelouafi/redux-saga)|Asynchronous API calls made easy with Saga|
+|Unit tests|[`mocha`](https://github.com/mochajs/mocha)|Simple javascript test framework|
+||[`enzyme`](https://github.com/airbnb/enzyme)|JavaScript Testing utilities for React components|
+||[`react-addons-test-utils`](https://facebook.github.io/react/docs/test-utils.html)|Required by enzyme. Makes it easy to test React components|
+||[`ignore-styles`](https://www.npmjs.com/package/ignore-styles)|Ignore imported style files when running in Node|
+|Sass|[`node-sass`](https://github.com/sass/node-sass)|Mature, stable, and powerful CSS extension language|
+|Webpack|[`webpack`](https://github.com/webpack/webpack)|A bundler for javascript, css and others|
+||[`webpack-dev-server`](https://github.com/webpack/webpack-dev-server)|Serves the app at [http://localhost:8080/](http://localhost:8080/)|
+||[`extract-text-webpack-plugin`](https://github.com/webpack/extract-text-webpack-plugin)|Webpack plugin that builds the css bundle file|
+||[`style-loader`](https://github.com/webpack/style-loader)|Webpack module that loads styles|
+||[`css-loader`](https://github.com/webpack/css-loader)|Webpack module that loads css styles|
+||[`sass-loader`](https://github.com/jtangelder/sass-loader)|Webpack module that loads sass styles|
+||[`clean-webpack-plugin`](https://github.com/johnagan/clean-webpack-plugin)|Webpack module to remove previous build files|
+|Babel|[`babel-core`](https://github.com/babel/babel/tree/master/packages/babel-core)|Compiler that helps node.js and the browser to understand the new js syntax|
+||[`babel-runtime`](https://www.npmjs.com/package/babel-runtime)|Helps node.js to understand the new js syntax|
+||[`babel-preset-es2015`](http://babeljs.io/docs/plugins/preset-es2015/)|Helps node.js to use [ES2015 Javascript syntax](http://www.ecma-international.org/ecma-262/6.0/ECMA-262.pdf)|
+||[`babel-preset-react`](http://babeljs.io/docs/plugins/preset-react/)|Helps node.js to use React's [JSX syntax](https://facebook.github.io/jsx/)|
+||[`babel-preset-stage-3`](https://babeljs.io/docs/plugins/preset-stage-0/)|Helps node.js to use the spread operator|
+||[`babel-loader`](https://github.com/babel/babel-loader)|Helps webpack to compile the new javascript syntax|
+||[`babel-polyfill`](https://babeljs.io/docs/usage/polyfill/)|Helps the browser to understand the new js syntax|
+||[`whatwg-fetch`](https://github.com/github/fetch)|Helps the browser to use fetch|
 
 
-### License
+# Express branch
 
-Copyright © 2015-present Kriasoft, LLC. This source code is licensed under the MIT license found in
-the [LICENSE.txt](https://github.com/kriasoft/react-static-boilerplate/blob/master/LICENSE.txt) file.
+You can use the [express branch](https://github.com/catalin-luntraru/redux-minimal/tree/express) if you want to use express instead of webpack-dev-server.
 
----
-Made with ♥ by Konstantin Tarkus ([@koistya](https://twitter.com/koistya)) and [contributors](https://github.com/kriasoft/react-static-boilerplate/graphs/contributors)
+
+# Change host and/or port
+
+If you don't want to use localhost on port 8080, you can change it in `package.json` and `webpack.config.js`.
+
+
+# Sample app
+
+Redux-Minimal also contains a small sample app that let's you manage some users with the following features:
+* a list of users with pagination
+* add a new user
+* edit an existing user
+* delete a user
+
+The sample app provides you with basically most of the things you will need when building a new real-world app.
+
+The demo for the app can be found here: 
+[http://redux-minimal-app.catalin-luntraru.com](http://redux-minimal-app.catalin-luntraru.com)
+
+
+# Build your own app
+
+1. Open `webpack.config.js` and change the `app_root` value from `src_users` to `src`
+
+2. Run `npm start`
+
+3. Congratulations! You now have a blank `Hello world` starting app
+
+
+# Scripts
+
+Besides the `start` script, there are also other scripts
+
+|`npm run <script>`|What it does|
+|------------------|------------|
+|`start`|Starts the app at [http://localhost:8080/](http://localhost:8080/). The bundle js/css files are stored in memory|
+|`test`|Starts the unit testing using all the files found in the `test` folder|
+|`test-watch`| Starts the unit testing and watches for changes to re-run the tests|
+|`build-dev`|Builds the js/css bundle files in the `public` folder. Adds debugging code for development|
+|`build-prod`|Builds the js/css bundle minified files in the `public` folder|
+
+
+# License
+
+This project is licensed under the MIT license, Copyright (c) 2016 Catalin Luntraru.

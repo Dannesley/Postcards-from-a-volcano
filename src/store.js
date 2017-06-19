@@ -1,27 +1,25 @@
-/**
- * React Static Boilerplate
- * https://github.com/kriasoft/react-static-boilerplate
- *
- * Copyright © 2015-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
+import { createStore, applyMiddleware, compose } from "redux";
+import freeze from "redux-freeze";
+import { reducers } from "./state/reducers";
 
-import { createStore } from 'redux';
+// add the middlewares
+let middlewares = [];
 
-// Centralized application state
-// For more information visit http://redux.js.org/
-const initialState = { count: 0 };
+// add the freeze dev middleware
+if (process.env.NODE_ENV !== 'production') {
+  middlewares.push(freeze);
+}
 
-const store = createStore((state = initialState, action) => {
-  // TODO: Add action handlers (aka "reducers")
-  switch (action.type) {
-    case 'COUNT':
-      return { ...state, count: (state.count) + 1 };
-    default:
-      return state;
-  }
-});
+// apply the middleware
+let middleware = applyMiddleware(...middlewares);
 
-export default store;
+// add the redux dev tools
+if (process.env.NODE_ENV !== 'production' && window.devToolsExtension) {
+  middleware = compose(middleware, window.devToolsExtension());
+}
+
+// create the store
+const store = createStore(reducers, middleware);
+
+// export
+export { store };

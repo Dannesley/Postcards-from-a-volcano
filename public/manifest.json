@@ -1,0 +1,13 @@
+{
+	"manifest_version": 2,
+	"name": "Postcards from a volcano",
+	"description": "Just a lil something something",
+	"version": "0.1",
+	"incognito": "split",
+	"chrome_url_overrides": {
+		"newtab": "index.html"
+	},
+	"permissions": [
+		"storage"
+	]
+}
