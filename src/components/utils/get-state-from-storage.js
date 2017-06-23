@@ -1,4 +1,4 @@
-import { generateFactOfTheDay, generateGreetings } from './state-generators';
+import { generateFactOfTheDay, generateGreetings, generateQuips } from './state-generators';
 
 export default (storage) => {
 	const today = new Date();
@@ -11,7 +11,8 @@ export default (storage) => {
 		// derive state
 		const newState = {
 			factOfTheDay: generateFactOfTheDay(),
-			greetings: generateGreetings()
+			greetings: generateGreetings(),
+			quips: generateQuips(),
 		};
 
 		// sync new state back to server
@@ -25,6 +26,7 @@ export default (storage) => {
 	return {
 		factOfTheDay: storage.factOfTheDay,
 		greetings: storage.greetings,
+		quips: storage.quips,
 	};
 }
 

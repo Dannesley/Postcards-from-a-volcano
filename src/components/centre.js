@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import sakurajimaNight from '../assets/images/sakurajima_night.jpg';
-import GreetingGenerator from './greeting-generator';
-import GreetingQuipGenerator from './greeting-quip-generator';
+import Greeting from './greeting';
+import Quip from './quip';
 import ThoughtInput from './thought-input';
 
 const Centred = styled.div`
@@ -15,18 +15,14 @@ const Centred = styled.div`
 	transform-origin: 50% 50%;
 `;
 
-const GreetingWrapper = styled.div`
-`;
-
 export default class Centre extends PureComponent {
-
 	render() {
     	return (
 			<Centred>
-				<GreetingWrapper>
-					<GreetingGenerator />
-					<GreetingQuipGenerator />
-				</GreetingWrapper>
+				<div>
+					<Greeting />
+					<Quip />
+				</div>
 				<ThoughtInput />
 			</Centred>
     	);

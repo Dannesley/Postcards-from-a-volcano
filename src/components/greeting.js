@@ -7,15 +7,15 @@ const Text = styled.p`
 	font-size: 6em;
 `;
 
-export class GreetingGenerator extends PureComponent {
-	generateGreetingText() {
+export class Greeting extends PureComponent {
+	getGreeting() {
 		const { partOfTheDay, greetings } = this.props;
 		return greetings[partOfTheDay];
 	}
 
 	render() {
     	return (
-			<Text>{this.generateGreetingText()}</Text>
+			<Text>{this.getGreeting()}</Text>
     	);
   	}
 }
@@ -27,5 +27,5 @@ export default connect(
 			greetings: state.entities.greetings,
 		}
 	},
-)(GreetingGenerator)
+)(Greeting)
 

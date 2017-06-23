@@ -49,6 +49,7 @@ injectGlobal`
 		min-height:100%;
 		font-family: 'Lato';
 		color: #FFF;
+		margin: 0;
 	}
 
 	p {

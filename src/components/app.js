@@ -6,7 +6,7 @@ import { setStateFromStorage, setPartOfTheDay } from '../state/actions';
 import getStateFromStorage from './utils/get-state-from-storage';
 import getPartOfTheDay from './utils/get-part-of-the-day';
 import Centre from './centre';
-import RandomFacts from './random-facts';
+import Fact from './fact';
 
 const FullSizeBackground = styled.div`
 	background-color: rgba(0,0,0,0.1);
@@ -30,13 +30,22 @@ const FullSizeContainer = styled.div`
 	background-color: rgba(0,0,0,0.1);
 `;
 
+const STORAGE_KEYS = [
+	'lastUpdated',
+	'factOfTheDay',
+	'greetings',
+	'quips',
+]
+
 export class App extends PureComponent {
-	constructor() {
-		super();
-		chrome.storage.sync.get(['lastUpdated', 'factOfTheDay', 'greetings'], (storage) => {
+	constructor(props) {
+		super(props);
+		props.setPartOfTheDay(
+			getPartOfTheDay(new Date().getHours())
+		);
+		chrome.storage.sync.get(STORAGE_KEYS, (storage) => {
 			const state = getStateFromStorage(storage);
-			this.props.setStateFromStorage(state);
-			this.props.setPartOfTheDay(getPartOfTheDay());
+			props.setStateFromStorage(state);
 		});
 	}
 
@@ -45,7 +54,7 @@ export class App extends PureComponent {
       		<FullSizeBackground>
 				<FullSizeContainer>
 					<Centre />
-					<RandomFacts/>
+					<Fact/>
 				</FullSizeContainer>
       		</FullSizeBackground>
     	);

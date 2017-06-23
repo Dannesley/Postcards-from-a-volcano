@@ -16,8 +16,20 @@ export const setFactExpand = (isFactExpanded) => ({
 	payload: isFactExpanded,
 });
 
+export const SET_IS_THOUGHT_SIMMERING = 'SET_IS_THOUGHT_SIMMERING';
+export const setIsThoughtSimmering = () => ({
+	type: SET_IS_THOUGHT_SIMMERING,
+	payload: null,
+})
+
 export const SET_THOUGHT = 'SET_THOUGHT';
 export const setThought = (thought) => ({
 	type: SET_THOUGHT,
 	payload: thought,
+});
+
+export const CLEAR_THOUGHT = 'CLEAR_THOUGHT';
+export const clearThought = () => ({
+	type: CLEAR_THOUGHT,
+	payload: null,
 });

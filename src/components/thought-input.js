@@ -1,12 +1,18 @@
 import React, { PureComponent } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { connect } from 'react-redux';
-import { setThought } from '../state/actions';
+import { setThought, clearThought, setIsThoughtSimmering } from '../state/actions';
 
 const INPUT_WIDTH = 300;
 const INPUT_BORDER_SIZE = 3;
 const VOLCANO_ORANGE = '#FF830F';
 const VOLCANO_RED =  '#CF1020'
+const SIMMER_TIME = 4000;
+
+const fadeOut = keyframes`
+	from { opacity: 1; }
+	to { opacity: 0; }
+`
 
 const ThoughtWrapper = styled.div`
 	margin-top: 80px;
@@ -30,20 +36,23 @@ const Input = styled.input`
 	padding: 3px 0;
 	height: 20px;
 
-	caret-color: ${props => props.isAThought ? VOLCANO_RED : VOLCANO_ORANGE};
+	caret-color: ${props => props.isThoughtSimmering ? VOLCANO_RED : VOLCANO_ORANGE};
 	color: #FFF;
-
+	
 	&:focus + .thought_input_border {
 		transform: scaleX(1);
 	}
 
-	${props => props.isAThought &&
-		`+ .thought_input_border {
+	${props => props.isThoughtSimmering && `
+		animation: ${fadeOut} ${SIMMER_TIME}ms linear;
+		animation-fill-mode: forwards;
+
+		+ .thought_input_border {
 			transform: scaleX(1);
 			transition: all 500ms ease-in;
 			background-color: ${VOLCANO_RED};
-		}`
-	}
+		}
+	`}
 `;
 
 const InputBorder = styled.div`
@@ -58,29 +67,43 @@ const InputBorder = styled.div`
 `;
 
 export class ThoughtInput extends PureComponent {
-
 	onKeyPress = (event) => {
 		if (event.key === 'Enter') {
 			this.input.blur()
 		}
 	}
 
-	setThought = () => {
-		return this.props.setThought(this.input.value)
+	componentDidUpdate() {
+		const { isThoughtSimmering, clearThought } = this.props;
+		if (isThoughtSimmering) {
+			setTimeout(() => clearThought(), SIMMER_TIME);
+		}
 	}
 
+	simmerThought = () => {
+		const { thought, setIsThoughtSimmering } = this.props;
+		if (thought.length > 0) {
+			setIsThoughtSimmering();
+		}
+	}
+
+	setThought = (event) => this.props.setThought(event.target.value);
+
 	render() {
-		const { thought, setThought } = this.props;
+		const { thought, isThoughtSimmering, setThought } = this.props;
 
     	return (
 			<ThoughtWrapper>
 				<Prompt>Give your thoughts to the volcano:</Prompt>
 				<InputWrapper>
 					<Input
+						value={thought}
 						innerRef={input => this.input = input}
-						onBlur={this.setThought}
+						onBlur={this.simmerThought}
 						onKeyPress={this.onKeyPress}
-						isAThought={thought.length > 0}
+						onChange={this.setThought}
+						disabled={isThoughtSimmering}
+						isThoughtSimmering={isThoughtSimmering}
 					/>
 					<InputBorder className='thought_input_border'/>
 				</InputWrapper>
@@ -93,7 +116,8 @@ export default connect(
 	(state) => {
 		return {
 			thought: state.entities.thought,
+			isThoughtSimmering: state.entities.isThoughtSimmering,
 		}
 	},
-	{ setThought }
+	{ setThought, clearThought, setIsThoughtSimmering }
 )(ThoughtInput)

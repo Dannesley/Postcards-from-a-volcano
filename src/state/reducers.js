@@ -1,6 +1,13 @@
 import { combineReducers } from "redux";
-import { set, merge } from "icepick";
-import { SET_STATE_FROM_STORAGE, SET_THOUGHT, SET_PART_OF_THE_DAY, SET_FACT_EXPAND } from "./actions";
+import { set, merge, chain } from "icepick";
+import { 
+	SET_STATE_FROM_STORAGE,
+	SET_IS_THOUGHT_SIMMERING,
+	SET_THOUGHT,
+	CLEAR_THOUGHT,
+	SET_PART_OF_THE_DAY,
+	SET_FACT_EXPAND
+} from "./actions";
 
 // ================ //
 // === ENTITIES === //
@@ -8,19 +15,33 @@ import { SET_STATE_FROM_STORAGE, SET_THOUGHT, SET_PART_OF_THE_DAY, SET_FACT_EXPA
 const initialEntitiesState = {
 	factOfTheDay: '',
 	greetings: {},
+	quips: {},
 	thought: '',
+	isThoughtSimmering: false,
 }
 
-const entities = (state = initialEntitiesState, action) => {
+const entities = (state = initialEntitiesState,
+action) => {
 	switch(action.type) {
 		case SET_STATE_FROM_STORAGE: {
 			const stateFromStorage = action.payload;
 			return merge(state, stateFromStorage);
 		}
 
+		case SET_IS_THOUGHT_SIMMERING: {
+			return set(state, 'isThoughtSimmering', true);
+		}
+
 		case SET_THOUGHT: {
 			const thought = action.payload;
-			return set(state, 'thought', thought)
+			return set(state, 'thought', thought);
+		}
+
+		case CLEAR_THOUGHT: {
+			return chain(state)
+				.set('thought', '')
+				.set('isThoughtSimmering', false)
+				.value();
 		}
 
 		default: {

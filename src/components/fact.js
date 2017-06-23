@@ -40,7 +40,7 @@ const Chevron = styled.div`
 	cursor: pointer;
 `;
 
-export class RandomFacts extends PureComponent {
+export class Fact extends PureComponent {
 	setExpandState = () => {
 		this.props.setFactExpand(!this.props.isFactExpanded)
 	}
@@ -80,4 +80,4 @@ export default connect(
 		}
 	},
 	{ setFactExpand }
-)(RandomFacts)
+)(Fact)

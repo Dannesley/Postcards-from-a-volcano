@@ -5,25 +5,23 @@ export const FACTS = [
 	"D",
 	"E",
 	"F",
-]
+];
 
 const GREETINGS_MORNING = [
 	"Good morning",
 	"Morning, friend",
 	"Rise n' shine!",
 	"おはよう ございます",
-]
-
+];
 const GREETINGS_AFTERNOON = [
 	"Good afternoon",
 	"Good day",
 	"こんにちわ",
-]
-
+];
 const GREETINGS_EVENING = [
 	"Good evening",
 	"こんばんは",
-]
+];
 
 export const GREETINGS = { 
 	MORNING: GREETINGS_MORNING,
@@ -33,3 +31,29 @@ export const GREETINGS = {
 	// greetings at night makes no sense
 	NIGHT: GREETINGS_EVENING,
  };
+
+ const QUIP_MORNING = [
+
+ ];
+
+ const QUIP_AFTERNOON = [
+
+ ];
+
+ const QUIP_EVENING = [
+
+ ];
+
+ const QUIP_NIGHT = [
+	"nice face :3",
+	"kish me",
+ ];
+
+ export const QUIPS = {
+	 MORNING: QUIP_MORNING,
+	 AFTERNOON: QUIP_AFTERNOON,
+	 EVENING: QUIP_EVENING,
+	 NIGHT: QUIP_NIGHT,
+ }
+ 
+

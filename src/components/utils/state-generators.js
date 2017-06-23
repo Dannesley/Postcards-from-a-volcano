@@ -1,4 +1,4 @@
-import { FACTS, GREETINGS } from './constants';
+import { FACTS, GREETINGS, QUIPS } from './constants';
 
 const getRandom = array => array[Math.floor(Math.random() * array.length)]
 
@@ -12,3 +12,12 @@ export const generateGreetings = () => {
 		night: getRandom(GREETINGS.NIGHT),
 	}
 };
+
+export const generateQuips = () => {
+	return {
+		morning: getRandom(QUIPS.MORNING),
+		afteroon: getRandom(QUIPS.AFTERNOON),
+		evening: getRandom(QUIPS.EVENING),
+		night: getRandom(QUIPS.NIGHT),
+	}
+}
