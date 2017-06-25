@@ -1,4 +1,3 @@
-import { combineReducers } from "redux";
 import { set, merge, chain } from "icepick";
 import { 
 	SET_STATE_FROM_STORAGE,
@@ -12,23 +11,22 @@ import {
 // ================ //
 // === ENTITIES === //
 // ================ //
-const initialEntitiesState = {
+const initialState = {
+	partOfTheDay: 'afternoon',
 	factOfTheDay: '',
+	thought: '',
 	greetings: {},
 	quips: {},
-	thought: '',
+	// ui only state
 	isThoughtSimmering: false,
+	isFactExpanded: true,
 }
 
-const entities = (state = initialEntitiesState, action) => {
+export const state = (state = initialState, action) => {
 	switch(action.type) {
 		case SET_STATE_FROM_STORAGE: {
 			const stateFromStorage = action.payload;
 			return merge(state, stateFromStorage);
-		}
-
-		case SET_IS_THOUGHT_SIMMERING: {
-			return set(state, 'isThoughtSimmering', true);
 		}
 
 		case SET_THOUGHT: {
@@ -43,25 +41,14 @@ const entities = (state = initialEntitiesState, action) => {
 				.value();
 		}
 
-		default: {
-			return state;
-		}
-	}
-}
-
-// ========== //
-// === UI === //
-// ========== //
-const initialUiState = {
-	partOfTheDay: 'afternoon',
-	isFactExpanded: false,
-}
-
-const ui = (state = initialUiState, action) => {
-	switch(action.type) {
 		case SET_PART_OF_THE_DAY: {
 			const partOfTheDay = action.payload;
 			return set(state, 'partOfTheDay', partOfTheDay);
+		}
+
+		// ui only state
+		case SET_IS_THOUGHT_SIMMERING: {
+			return set(state, 'isThoughtSimmering', true);
 		}
 
 		case SET_FACT_EXPAND: {
@@ -73,9 +60,4 @@ const ui = (state = initialUiState, action) => {
 			return state;
 		}
 	}
-}	
-
-export const reducers = combineReducers({
-	entities,
-	ui,
-});
+}

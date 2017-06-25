@@ -1,26 +1,12 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import sakurajimaNight from '../assets/images/sakurajima_night.jpg';
-import sakurajimaDay from '../assets/images/sakurajima_day.jpg';
 import { setStateFromStorage, setPartOfTheDay } from '../state/actions';
 import getStateFromStorage from './utils/get-state-from-storage';
 import getPartOfTheDay from './utils/get-part-of-the-day';
+import Background from './background';
 import Centre from './centre';
 import Fact from './fact';
-
-const FullSizeBackground = styled.div`
-	background-color: rgba(0,0,0,0.1);
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	background-color: black;
-
-	background: url(${ sakurajimaDay }) no-repeat center center fixed;
-	background-size: cover;
-`;
 
 const FullSizeContainer = styled.div`
 	position: absolute;
@@ -52,12 +38,13 @@ export class App extends PureComponent {
 
 	render() {
     	return (
-      		<FullSizeBackground>
+			<div>
+				<Background />
 				<FullSizeContainer>
 					<Centre />
 					<Fact/>
 				</FullSizeContainer>
-      		</FullSizeBackground>
+			</div>
     	);
   	}
 }

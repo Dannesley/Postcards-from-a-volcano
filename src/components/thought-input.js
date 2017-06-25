@@ -115,8 +115,8 @@ export class ThoughtInput extends PureComponent {
 export default connect(
 	(state) => {
 		return {
-			thought: state.entities.thought,
-			isThoughtSimmering: state.entities.isThoughtSimmering,
+			thought: state.thought,
+			isThoughtSimmering: state.isThoughtSimmering,
 		}
 	},
 	{ setThought, clearThought, setIsThoughtSimmering }

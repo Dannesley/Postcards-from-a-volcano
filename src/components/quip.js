@@ -23,8 +23,8 @@ export class Quip extends PureComponent {
 export default connect(
 	(state) => {
 		return {
-			partOfTheDay: state.ui.partOfTheDay,
-			quips: state.entities.quips,
+			partOfTheDay: state.partOfTheDay,
+			quips: state.quips,
 		}
 	},
 )(Quip)

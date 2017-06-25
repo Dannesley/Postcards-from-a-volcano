@@ -40,6 +40,10 @@ const Chevron = styled.div`
 	cursor: pointer;
 `;
 
+const FactWrapper = styled.p`
+	white-space: pre-wrap;
+`;
+
 export class Fact extends PureComponent {
 	setExpandState = () => {
 		this.props.setFactExpand(!this.props.isFactExpanded)
@@ -49,7 +53,7 @@ export class Fact extends PureComponent {
 		const { isFactExpanded, factOfTheDay } = this.props;
 		return (
 			isFactExpanded
-				? <p>{factOfTheDay}</p>
+				? <FactWrapper>{factOfTheDay}</FactWrapper>
 				: null
 		);
 	}
@@ -75,8 +79,8 @@ export class Fact extends PureComponent {
 export default connect(
 	(state) => {
 		return {
-			isFactExpanded: state.ui.isFactExpanded,
-			factOfTheDay: state.entities.factOfTheDay,
+			isFactExpanded: state.isFactExpanded,
+			factOfTheDay: state.factOfTheDay,
 		}
 	},
 	{ setFactExpand }

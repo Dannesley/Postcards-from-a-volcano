@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
-import sakurajimaNight from '../assets/images/sakurajima_night.jpg';
 import Greeting from './greeting';
 import Quip from './quip';
 import ThoughtInput from './thought-input';

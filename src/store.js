@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import freeze from "redux-freeze";
-import { reducers } from "./state/reducers";
+import { state } from "./state/reducers";
 
 // add the middlewares
 let middlewares = [];
@@ -19,7 +19,7 @@ if (process.env.NODE_ENV !== 'production' && window.devToolsExtension) {
 }
 
 // create the store
-const store = createStore(reducers, middleware);
+const store = createStore(state, middleware);
 
 // export
 export { store };
