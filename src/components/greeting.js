@@ -9,6 +9,7 @@ const Text = styled.p`
 
 export class Greeting extends PureComponent {
 	getGreeting() {
+		console.log(this.props);
 		const { partOfTheDay, greetings } = this.props;
 		return greetings[partOfTheDay];
 	}
@@ -22,6 +23,7 @@ export class Greeting extends PureComponent {
 
 export default connect(
 	(state) => {
+		console.log(state.entities.greetings);
 		return {
 			partOfTheDay: state.ui.partOfTheDay,
 			greetings: state.entities.greetings,

@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import sakurajimaNight from '../assets/images/sakurajima_night.jpg';
+import sakurajimaDay from '../assets/images/sakurajima_day.jpg';
 import { setStateFromStorage, setPartOfTheDay } from '../state/actions';
 import getStateFromStorage from './utils/get-state-from-storage';
 import getPartOfTheDay from './utils/get-part-of-the-day';
@@ -17,7 +18,7 @@ const FullSizeBackground = styled.div`
 	bottom: 0;
 	background-color: black;
 
-	background: url(${ sakurajimaNight }) no-repeat center center fixed;
+	background: url(${ sakurajimaDay }) no-repeat center center fixed;
 	background-size: cover;
 `;
 

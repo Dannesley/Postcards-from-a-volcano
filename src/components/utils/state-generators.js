@@ -7,7 +7,7 @@ export const generateFactOfTheDay = () => getRandom(FACTS);
 export const generateGreetings = () => {
 	return {
 		morning: getRandom(GREETINGS.MORNING),
-		afteroon: getRandom(GREETINGS.AFTERNOON),
+		afternoon: getRandom(GREETINGS.AFTERNOON),
 		evening: getRandom(GREETINGS.EVENING),
 		night: getRandom(GREETINGS.NIGHT),
 	}
@@ -16,7 +16,7 @@ export const generateGreetings = () => {
 export const generateQuips = () => {
 	return {
 		morning: getRandom(QUIPS.MORNING),
-		afteroon: getRandom(QUIPS.AFTERNOON),
+		afternoon: getRandom(QUIPS.AFTERNOON),
 		evening: getRandom(QUIPS.EVENING),
 		night: getRandom(QUIPS.NIGHT),
 	}

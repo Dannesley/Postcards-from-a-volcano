@@ -33,15 +33,15 @@ export const GREETINGS = {
  };
 
  const QUIP_MORNING = [
-
+	"a"
  ];
 
  const QUIP_AFTERNOON = [
-
+	"b"
  ];
 
  const QUIP_EVENING = [
-
+	"c"
  ];
 
  const QUIP_NIGHT = [

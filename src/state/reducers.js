@@ -20,8 +20,7 @@ const initialEntitiesState = {
 	isThoughtSimmering: false,
 }
 
-const entities = (state = initialEntitiesState,
-action) => {
+const entities = (state = initialEntitiesState, action) => {
 	switch(action.type) {
 		case SET_STATE_FROM_STORAGE: {
 			const stateFromStorage = action.payload;
