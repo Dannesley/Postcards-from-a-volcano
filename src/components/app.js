@@ -22,6 +22,7 @@ const STORAGE_KEYS = [
 	'factOfTheDay',
 	'greetings',
 	'quips',
+	'isFactExpanded',
 ]
 
 export class App extends PureComponent {

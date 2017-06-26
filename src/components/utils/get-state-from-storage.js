@@ -13,10 +13,11 @@ export default (storage) => {
 			factOfTheDay: generateFactOfTheDay(),
 			greetings: generateGreetings(),
 			quips: generateQuips(),
+			isFactExpanded: storage.isFactExpanded || true,
 		};
 
-		// sync new state back to server
 		const lastUpdated = today.toString();
+		// sync new state back to server
 		chrome.storage.sync.set({ ...newState, lastUpdated }, () => { console.log('New day, new data.'); });
 
 		return newState;
@@ -27,6 +28,7 @@ export default (storage) => {
 		factOfTheDay: storage.factOfTheDay,
 		greetings: storage.greetings,
 		quips: storage.quips,
+		isFactExpanded: storage.isFactExpanded,
 	};
 }
 
