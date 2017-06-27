@@ -1,12 +1,15 @@
 {
 	"manifest_version": 2,
 	"name": "Postcards from a volcano",
-	"description": "Just a lil something something",
-	"version": "0.1",
+	"description": "Chuffing along, letting you know you are of great magmatude to me.",
+	"version": "1.0",
 	"incognito": "split",
 	"chrome_url_overrides": {
 		"newtab": "index.html"
 	},
+	"icons": { 
+		"128":"media/icon_128.png"
+    }, 
 	"permissions": [
 		"storage"
 	]

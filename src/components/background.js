@@ -15,7 +15,7 @@ const FullSizeBackground = styled.div`
 	top: 0;
 	bottom: 0;
 	background: ${
-		props => props.lightLevel === 'light'
+		props => props.isLight
 			? `url(${ sakurajimaLight }) no-repeat center center fixed`
 			: `url(${ sakurajimaDark }) no-repeat center center fixed`
 	} ;
@@ -23,16 +23,9 @@ const FullSizeBackground = styled.div`
 `;
 
 export class Background extends PureComponent {
-	getLightLevel = () => {
-		const { partOfTheDay } = this.props;
-		return (partOfTheDay === 'morning' || partOfTheDay === 'afternoon')
-			? 'light'
-			: 'dark';
-	}
-
 	render() {
     	return (
-      		<FullSizeBackground lightLevel={this.getLightLevel()} />
+      		<FullSizeBackground isLight={this.props.isLight} />
     	);
   	}
 }
@@ -41,6 +34,7 @@ export default connect(
 	(state) => {
 		return {
 			partOfTheDay: state.partOfTheDay,
+			isLight: state.isLight,
 		}
 	},
 )(Background)

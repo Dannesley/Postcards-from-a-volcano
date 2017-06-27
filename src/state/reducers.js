@@ -13,6 +13,7 @@ import {
 // ================ //
 const initialState = {
 	partOfTheDay: 'afternoon',
+	isLight: true,
 	factOfTheDay: '',
 	thought: '',
 	greetings: {},
@@ -21,6 +22,8 @@ const initialState = {
 	isThoughtSimmering: false,
 	isFactExpanded: true,
 }
+
+const isLight = (partOfTheDay) => (partOfTheDay === 'morning' || partOfTheDay === 'afternoon') ? true : false;
 
 export const state = (state = initialState, action) => {
 	switch(action.type) {
@@ -43,7 +46,10 @@ export const state = (state = initialState, action) => {
 
 		case SET_PART_OF_THE_DAY: {
 			const partOfTheDay = action.payload;
-			return set(state, 'partOfTheDay', partOfTheDay);
+			return chain(state)
+				.set('partOfTheDay', partOfTheDay)
+				.set('isLight', isLight(partOfTheDay))
+				.value();
 		}
 
 		// ui only state

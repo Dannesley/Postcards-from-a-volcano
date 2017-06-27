@@ -2,12 +2,13 @@ import React, { PureComponent } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { connect } from 'react-redux';
 import { setThought, clearThought, setIsThoughtSimmering } from '../state/actions';
+import { lightAwareText } from './utils/styles';
 
-const INPUT_WIDTH = 300;
+const INPUT_WIDTH = 400;
 const INPUT_BORDER_SIZE = 3;
 const VOLCANO_ORANGE = '#FF830F';
 const VOLCANO_RED =  '#CF1020'
-const SIMMER_TIME = 4000;
+const SIMMER_TIME = 6000;
 
 const fadeOut = keyframes`
 	from { opacity: 1; }
@@ -18,8 +19,9 @@ const ThoughtWrapper = styled.div`
 	margin-top: 80px;
 `;
 
-const Prompt = styled.p`
+const Prompt = styled(lightAwareText)`
 	margin-bottom: 20px;
+	font-size: 1.5em;
 `;
 
 const InputWrapper = styled.div`
@@ -28,6 +30,7 @@ const InputWrapper = styled.div`
 
 const Input = styled.input`
 	font-family: OpenSans;
+	font-size: 13px;
 	border: none;
 	border-bottom: ${INPUT_BORDER_SIZE}px solid #FFF;
 	background: none;
@@ -90,11 +93,13 @@ export class ThoughtInput extends PureComponent {
 	setThought = (event) => this.props.setThought(event.target.value);
 
 	render() {
-		const { thought, isThoughtSimmering, setThought } = this.props;
+		const { thought, isThoughtSimmering, setThought, isLight } = this.props;
 
     	return (
 			<ThoughtWrapper>
-				<Prompt>Give your thoughts to the volcano:</Prompt>
+				<Prompt isLight={isLight}>
+					Give your thoughts to the volcano:
+				</Prompt>
 				<InputWrapper>
 					<Input
 						value={thought}
@@ -117,6 +122,7 @@ export default connect(
 		return {
 			thought: state.thought,
 			isThoughtSimmering: state.isThoughtSimmering,
+			isLight: state.isLight,
 		}
 	},
 	{ setThought, clearThought, setIsThoughtSimmering }

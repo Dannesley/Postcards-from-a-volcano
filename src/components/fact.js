@@ -33,14 +33,14 @@ const Chevron = styled.div`
 	width: 7px;
 	height: 7px;
 	margin-left: 5px;
-	margin-top: ${props=> props.isFactExpanded ? '10' : '1'}px;
+	margin-top: ${props=> props.isFactExpanded ? '1' : '5'}px;
 	background: transparent;
 	border-top: 2px solid #fff;
 	border-right: 2px solid #fff;
 	box-shadow: 0 0 0 lightgray;
 	cursor: pointer;
 	transform: ${
-		props=> props.isFactExpanded ? 'translate3d(0,-50%,0) rotate(315deg)' : 'translate3d(0,-50%,0) rotate(135deg)'
+		props=> props.isFactExpanded ? 'translate3d(0,-50%,0) rotate(135deg)' : 'translate3d(0,-50%,0) rotate(45deg)'
 	};
 	&:hover {
 		border-top: 2px solid #FF830F;
@@ -53,7 +53,6 @@ const FactWrapper = styled.p`
 `;
 
 export class Fact extends PureComponent {
-
 	// gross side effect
 	// but optimistically update for the UX and consider moving later
 	setExpandState = () => {
@@ -75,7 +74,10 @@ export class Fact extends PureComponent {
     	return (
 			<FactsWrapper>
 				<TitleWrapper>
-					<Title onClick={this.setExpandState}>
+					<Title
+						onClick={this.setExpandState}
+						isLight={this.props.isLight}
+					>
 						Did you know
 					</Title>
 					<Chevron 

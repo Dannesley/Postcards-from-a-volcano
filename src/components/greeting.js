@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import { lightAwareText } from './utils/styles';
 
-const Text = styled.p`
+const Text = styled(lightAwareText)`
 	font-family: 'LatoBold';
-	font-size: 6em;
+	font-size: 6.5em;
 `;
 
 export class Greeting extends PureComponent {
@@ -15,7 +16,9 @@ export class Greeting extends PureComponent {
 
 	render() {
     	return (
-			<Text>{this.getGreeting()}</Text>
+			<Text isLight={this.props.isLight}>
+				{this.getGreeting()}
+			</Text>
     	);
   	}
 }
@@ -25,6 +28,7 @@ export default connect(
 		return {
 			partOfTheDay: state.partOfTheDay,
 			greetings: state.greetings,
+			isLight: state.isLight,
 		}
 	},
 )(Greeting)
